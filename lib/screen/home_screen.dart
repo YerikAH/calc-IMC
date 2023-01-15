@@ -1,4 +1,5 @@
 import 'package:app_calc_imc/theme/theme_app.dart';
+import 'package:app_calc_imc/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,9 +16,11 @@ class HomeScreen extends StatelessWidget {
           IconButton(onPressed: (){}, icon: const Icon(Icons.info_outline_rounded),)
         ],
       ),
-      body: Center(
-         child: Text('HomeScreen'),
-      ),
+      body: ListView(
+        children: const [
+          ResultWidget()
+        ],
+      )
     );
   }
 }
