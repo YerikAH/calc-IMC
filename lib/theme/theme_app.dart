@@ -12,6 +12,7 @@ class ThemeApp{
 
   static final ThemeData appConfigTheme = ThemeData.light().copyWith(
     scaffoldBackgroundColor: white,
+    useMaterial3: true,
     appBarTheme: const AppBarTheme(
       elevation: 0,
       foregroundColor: black,
@@ -24,7 +25,38 @@ class ThemeApp{
         color: black,
         fontSize: 16.0,
         fontWeight: FontWeight.w600
-      )
+      ),
+      titleSmall: const TextStyle(
+        fontFamily: "Poppins",
+        color: black,
+        fontSize: 24.0,
+        fontWeight: FontWeight.w700
+      ),
+      titleLarge: 
+      const TextStyle(
+        fontFamily: "Poppins",
+        color: blue,
+        fontSize: 32.0,
+        fontWeight: FontWeight.w700
+      ),
+      bodyMedium: const TextStyle(
+        fontFamily: "Poppins",
+        color: gray,
+        fontSize: 16.0,
+        fontWeight: FontWeight.w500
+      ),
+      headlineMedium: const TextStyle(
+        fontFamily: "Poppins",
+        color: black,
+        fontSize: 16.0,
+        fontWeight: FontWeight.w500
+      ),
+      headlineLarge: const TextStyle(
+        fontFamily: "Poppins",
+        color: black,
+        fontSize: 32.0,
+        fontWeight: FontWeight.w800
+      ),
     )
   );
 }
