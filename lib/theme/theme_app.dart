@@ -19,6 +19,13 @@ class ThemeApp{
       backgroundColor: grayPale,
       centerTitle: true
     ),
+
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        backgroundColor: blue,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0))
+      )
+    ),
     textTheme: ThemeData.light().textTheme.copyWith(
       titleMedium: const TextStyle(
         fontFamily: "Poppins",
@@ -56,6 +63,12 @@ class ThemeApp{
         color: black,
         fontSize: 32.0,
         fontWeight: FontWeight.w800
+      ),
+      headlineSmall: const TextStyle(
+        fontFamily: "Poppins",
+        color: white,
+        fontSize: 16.0,
+        fontWeight: FontWeight.w600
       ),
     )
   );
