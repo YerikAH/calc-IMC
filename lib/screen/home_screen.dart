@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("BMI Calculator",style: Theme.of(context).textTheme.titleMedium,),
-
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(onPressed: (){
             Navigator.pushNamed(context, 'info');

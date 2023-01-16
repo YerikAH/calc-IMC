@@ -17,6 +17,7 @@ class ThemeApp{
       foregroundColor: black,
       backgroundColor: grayPale,
       centerTitle: true
+      
     ),
 
     textButtonTheme: TextButtonThemeData(
