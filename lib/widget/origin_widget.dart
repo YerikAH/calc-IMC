@@ -7,11 +7,16 @@ class OriginWidget extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text("source:",style: Theme.of(context).textTheme.titleMedium,),
-        Text(ConstantInfo.originLink,style: Theme.of(context).textTheme.bodyMedium),
-      ],
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(text: 'source: ',style: Theme.of(context).textTheme.titleMedium,),
+          TextSpan(text: ConstantInfo.originLink,style: Theme.of(context).textTheme.bodyMedium)
+
+        ]
+      ),
     );
+      
+    
   }
 }
