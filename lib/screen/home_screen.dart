@@ -12,11 +12,13 @@ class HomeScreen extends StatelessWidget {
         title: Text("BMI Calculator",style: Theme.of(context).textTheme.titleMedium,),
 
         actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.info_outline_rounded),)
+          IconButton(onPressed: (){
+            Navigator.pushNamed(context, 'info');
+          }, icon: const Icon(Icons.info_outline_rounded),)
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(right: 20.0,bottom: 30.0,left: 20.0),
+      body: Container(
+        margin: const EdgeInsets.only(right: 20.0,bottom: 30.0,left: 20.0),
         child: ListView(
           children: const [
             ResultWidget(),

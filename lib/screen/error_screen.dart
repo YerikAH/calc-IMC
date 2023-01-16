@@ -7,8 +7,18 @@ class ErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("BMI Calculator",style: Theme.of(context).textTheme.titleMedium,),
+
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.pushNamed(context, 'home');
+          }, icon: const Icon(Icons.exit_to_app_rounded),)
+        ],
+      ),
       body: Center(
          child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               width: 125.0,
@@ -20,8 +30,9 @@ class ErrorScreen extends StatelessWidget {
                 )
               ),
             ),
-            const Text("ERROR 404"),
-            const Text("Sorry an error occurred")
+            const SizedBox(height: 15.0,),
+            Text("ERROR 404",style: Theme.of(context).textTheme.titleSmall,),
+            Text("Sorry an error occurred",style: Theme.of(context).textTheme.bodyMedium,)
           ],
          )
       ),

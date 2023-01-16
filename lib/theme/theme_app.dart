@@ -12,7 +12,6 @@ class ThemeApp{
 
   static final ThemeData appConfigTheme = ThemeData.light().copyWith(
     scaffoldBackgroundColor: white,
-    useMaterial3: true,
     appBarTheme: const AppBarTheme(
       elevation: 0,
       foregroundColor: black,

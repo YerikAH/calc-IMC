@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'calcIMC',
-      initialRoute: RouteApp.initialRoute,
+      initialRoute: 'home',
       routes: RouteApp.myRoutes,
       onGenerateRoute:RouteApp.generateRouting,
       theme: ThemeApp.appConfigTheme,
