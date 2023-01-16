@@ -1,21 +1,21 @@
 import 'package:app_calc_imc/theme/theme_app.dart';
 import 'package:flutter/material.dart';
 
-class HeightWidget extends StatefulWidget {
+class WeightWidget extends StatefulWidget {
    
-  const HeightWidget({Key? key}) : super(key: key);
+  const WeightWidget({Key? key}) : super(key: key);
 
   @override
-  State<HeightWidget> createState() => _HeightWidgetState();
+  State<WeightWidget> createState() => _WeightWidgetState();
 }
 
-class _HeightWidgetState extends State<HeightWidget> {
-  double max = 2.5;
-  double min = 0.1;
-  double currentValue= 1.75;
+class _WeightWidgetState extends State<WeightWidget> {
+  double max = 150;
+  double min = 10;
+  double currentValue= 66.0;
   @override
   Widget build(BuildContext context) {
-    final titleBox = Text("Height (m)", style: Theme.of(context).textTheme.headlineMedium,);
+    final titleBox = Text("Weight (kg)", style: Theme.of(context).textTheme.headlineMedium,);
     final numberBox = Text(currentValue.toStringAsFixed(2),style: Theme.of(context).textTheme.headlineLarge,);
     final sliderBox = Slider.adaptive(
       value: currentValue, 

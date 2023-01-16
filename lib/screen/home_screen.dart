@@ -1,5 +1,4 @@
 import 'package:app_calc_imc/theme/theme_app.dart';
-
 import 'package:app_calc_imc/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +19,10 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: const [
           ResultWidget(),
-          HeightWidget()
+          SizedBox(height:30.0),
+          HeightWidget(),
+          SizedBox(height:15.0),
+          WeightWidget()
         ],
       )
     );
