@@ -1,10 +1,22 @@
 import 'package:app_calc_imc/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
    
   const HomeScreen({Key? key}) : super(key: key);
-  
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  double weightTotal = 100.0;
+  double heightTotal = 1.75;
+
+  void calcIbm(){
+    double result = weightTotal / (heightTotal * heightTotal);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,14 +32,24 @@ class HomeScreen extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.only(right: 20.0,bottom: 30.0,left: 20.0),
         child: ListView(
-          children: const [
-            ResultWidget(),
-            SizedBox(height:30.0),
-            HeightWidget(),
-            SizedBox(height:15.0),
-            WeightWidget(),
-            SizedBox(height:30.0),
-            ButtonopWidget()
+          children: [
+            const ResultWidget(),
+            const SizedBox(height:30.0),
+            HeightWidget(
+              onChange: (value) {
+                setState(() {
+                  heightTotal = value;
+                });
+              },
+            ),
+            const SizedBox(height:15.0),
+            WeightWidget(onChange: ((value) {
+              setState(() {
+                weightTotal = value;
+              });
+            }),),
+            const SizedBox(height:30.0),
+            const ButtonopWidget()
           ],
         ),
       )

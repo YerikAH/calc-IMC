@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class HeightWidget extends StatefulWidget {
    
-  const HeightWidget({Key? key}) : super(key: key);
+  const HeightWidget({Key? key, required this.onChange}) : super(key: key);
+  final ValueChanged<double> onChange;
 
   @override
   State<HeightWidget> createState() => _HeightWidgetState();
@@ -26,6 +27,7 @@ class _HeightWidgetState extends State<HeightWidget> {
         setState(() {
           currentValue = value;
         });
+        widget.onChange(value);
       }
     );
     return Container(

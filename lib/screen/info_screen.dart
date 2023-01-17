@@ -30,6 +30,7 @@ class InfoScreen extends StatelessWidget {
             Text(ConstantInfo.secondText,style: Theme.of(context).textTheme.bodyMedium,),
             const SizedBox(height: 20.0,),
             const TableWidget(),
+            const SizedBox(height: 20.0,),
             const OriginWidget()
           ],
         ),

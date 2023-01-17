@@ -2,17 +2,21 @@ import 'package:app_calc_imc/theme/theme_app.dart';
 import 'package:flutter/material.dart';
 
 class WeightWidget extends StatefulWidget {
-   
-  const WeightWidget({Key? key}) : super(key: key);
+  const WeightWidget({Key? key, required this.onChange}) : super(key: key);
 
+    final ValueChanged<double> onChange;
   @override
   State<WeightWidget> createState() => _WeightWidgetState();
 }
 
 class _WeightWidgetState extends State<WeightWidget> {
+
+
+
   double max = 150;
+  double currentValue = 100.0;
   double min = 10;
-  double currentValue= 66.0;
+
   @override
   Widget build(BuildContext context) {
     final titleBox = Text("Weight (kg)", style: Theme.of(context).textTheme.headlineMedium,);
@@ -26,6 +30,7 @@ class _WeightWidgetState extends State<WeightWidget> {
         setState(() {
           currentValue = value;
         });
+        widget.onChange(value);
       }
     );
     return Container(
