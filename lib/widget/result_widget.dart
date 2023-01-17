@@ -1,31 +1,40 @@
 import 'package:flutter/material.dart';
 
 class ResultWidget extends StatelessWidget {
-   
-  const ResultWidget({Key? key}) : super(key: key);
+  final String imagePath;
+  final String title;
+  final String text;
+  final String percent;
+  final Color color;
+  const ResultWidget({Key? key, required this.imagePath, required this.title, required this.text, required this.percent, required this.color}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
-    final resultTitle = Text("0.0%",style: Theme.of(context).textTheme.titleLarge,);
+    final resultTitle = Text("$percent%",style: TextStyle(        
+        fontFamily: "Poppins",
+        color: color,
+        fontSize: 32.0,
+        fontWeight: FontWeight.w700),
+      );
     final resultImg = Container(
       margin: const EdgeInsets.symmetric(vertical: 20.0),
       width: 125.0,
       height: 125.0,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/bmi.png"),
+          image: AssetImage(imagePath),
           fit: BoxFit.cover
         )
       ),
     );
 
     final resultSubTitle = Text(
-      "Your weight is good?",
+      title,
       style: Theme.of(context).textTheme.titleSmall,
     );
 
     final resultText = Text(
-      "You would like to know if you have the correct weight.",
+      text,
       style: Theme.of(context).textTheme.bodyMedium,
       textAlign: TextAlign.center,
       );
