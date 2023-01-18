@@ -1,4 +1,5 @@
-import 'package:app_calc_imc/theme/theme_app.dart';
+import 'package:app_calc_imc/class/order_text.dart';
+import 'package:app_calc_imc/helper/operation.dart';
 import 'package:app_calc_imc/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -11,33 +12,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final OrderText results = OrderText();
+  final Operation operation = Operation();
+
   double weightTotal = 100.0;
   double heightTotal = 1.75;
-  final imagePath = ["assets/bmi.png","assets/bad.png","assets/normal.png","assets/normal-bad.png","assets/bad-bad.png"];
-  final titleSelect = ["Your weight is good?","Underweight","Normal","Top Weight","Obesity"];
-  final textSelect = [
-    "You would like to know if you have the correct weight.",
-    "You need to eat more, and do a lot of physical exercise.",
-    "You are at your ideal weight, stay that way.",
-    "You need to watch your diet and exercise more.",
-    "You must lose weight for your health."
-  ];
-  final colors = [ThemeApp.blue,ThemeApp.blue, ThemeApp.green, ThemeApp.red , ThemeApp.yellow];
   double percent = 0.0;
   int selectNumber = 0;
 
   void calcIbm(){
-    double result = weightTotal / (heightTotal * heightTotal);
-    if (result <= 18.5) {
-      selectNumber = 1;
-    }else if(result > 18.5 && result <= 24.9){
-      selectNumber = 2;
-    }else if(result >= 25.0 && result <= 29.9){
-      selectNumber = 3;
-    }else{
-      selectNumber = 4;
-    }
-    percent = result;
+    
+    percent = operation.calcIbmOperation(weightTotal, heightTotal);
+    selectNumber = operation.numberSwitch(percent);
     setState(() {
       
     });
@@ -59,7 +45,15 @@ class _HomeScreenState extends State<HomeScreen> {
         margin: const EdgeInsets.only(right: 20.0,bottom: 30.0,left: 20.0),
         child: ListView(
           children: [
-            ResultWidget(imagePath: imagePath[selectNumber] , title: titleSelect[selectNumber] , percent: percent.toStringAsFixed(1) ,text: textSelect[selectNumber], color: colors[selectNumber],),
+            
+            ResultWidget(
+              imagePath: results.getResult(selectNumber).pahtImage, 
+              title: results.getResult(selectNumber).selectTitle, 
+              percent: percent.toStringAsFixed(1),
+              text: results.getResult(selectNumber).selectText,
+              color: results.getResult(selectNumber).selectColor,
+            ),
+
             const SizedBox(height:30.0),
             HeightWidget(
               onChange: (value) {
