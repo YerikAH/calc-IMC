@@ -37,7 +37,7 @@ flutter run
 ```
 ### Screenshots
 
-<img src="./assets/test.png" alt="app">
+<img src="./assets/test.png" width="375" alt="app" />
 
 ## Author
 
